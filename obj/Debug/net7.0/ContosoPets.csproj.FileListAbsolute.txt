@@ -1,0 +1,14 @@
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\bin\Debug\net7.0\ContosoPets.exe
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\bin\Debug\net7.0\ContosoPets.deps.json
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\bin\Debug\net7.0\ContosoPets.runtimeconfig.json
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\bin\Debug\net7.0\ContosoPets.dll
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\bin\Debug\net7.0\ContosoPets.pdb
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\ContosoPets.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\ContosoPets.AssemblyInfoInputs.cache
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\ContosoPets.AssemblyInfo.cs
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\ContosoPets.csproj.CoreCompileInputs.cache
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\ContosoPets.dll
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\refint\ContosoPets.dll
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\ContosoPets.pdb
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\ContosoPets.genruntimeconfig.cache
+C:\Users\buyer\Documents\CsharpProjects\ContosoPets\obj\Debug\net7.0\ref\ContosoPets.dll
