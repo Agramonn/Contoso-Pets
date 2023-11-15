@@ -165,17 +165,17 @@ do
                 } while (validEntry == false);
                 // build the animal the ID number - for example C1, C2, D3 (for Cat 1, Cat 2, Dog 3)
                 animalID = animalSpecies.Substring(0, 1) + (petCount + 1).ToString();
-                
+
                 // get the pet's age. can be ? at initial entry.
                 do
                 {
                     int petAge;
                     Console.WriteLine("Enter the pet's age or enter ? if unknown");
                     readResult = Console.ReadLine();
-                    if(readResult != null)
+                    if (readResult != null)
                     {
                         animalAge = readResult;
-                        if(animalAge != "?")
+                        if (animalAge != "?")
                         {
                             validEntry = int.TryParse(animalAge, out petAge);
                         }
@@ -195,7 +195,7 @@ do
                     if (readResult != null)
                     {
                         animalPhysicalDescription = readResult.ToLower();
-                        if(animalPhysicalDescription == "")
+                        if (animalPhysicalDescription == "")
                         {
                             animalPhysicalDescription = "tbd";
                         }
@@ -207,7 +207,7 @@ do
                 {
                     Console.WriteLine("Enter a description of the pet's personality (likes or dislikes, tricks, energy level)");
                     readResult = Console.ReadLine();
-                    if(readResult != null)
+                    if (readResult != null)
                     {
                         animalPersonalityDescription = readResult.ToLower();
                         if (animalPersonalityDescription == "")
@@ -216,22 +216,22 @@ do
                         }
                     }
                 } while (animalPersonalityDescription == "");
-                
+
                 // get the pet's nickname. animalNickname can be blank.
                 do
                 {
                     Console.WriteLine("Enter a nickname fot the pet");
                     readResult = Console.ReadLine();
-                    if(readResult != null)
+                    if (readResult != null)
                     {
                         animalNickname = readResult.ToLower();
-                        if(animalNickname == "")
+                        if (animalNickname == "")
                         {
                             animalNickname = "tdb";
                         }
                     }
                 } while (animalNickname == "");
-                
+
                 // store the pet information in the ourAnimals array (zero based)
                 ourAnimals[petCount, 0] = "ID #: " + animalID;
                 ourAnimals[petCount, 1] = "Species: " + animalSpecies;
@@ -239,8 +239,8 @@ do
                 ourAnimals[petCount, 3] = "Nickname: " + animalNickname;
                 ourAnimals[petCount, 4] = "Physical description: " + animalPhysicalDescription;
                 ourAnimals[petCount, 5] = "Personality: " + animalPersonalityDescription;
-                
-                
+
+
                 // increment petCount (the array is zero-based, so we increment the counter after adding to the array)
                 petCount = petCount + 1;
 
@@ -277,8 +277,8 @@ do
                 {
                     //Ensure that a valid numeric value is asigned to animalAge
                     int newAge;
-                    int found = ourAnimals[i,2].IndexOf(": ");
-                    bool validAge = int.TryParse(ourAnimals[i, 2].Substring(found +2), out newAge);
+                    int found = ourAnimals[i, 2].IndexOf(": ");
+                    bool validAge = int.TryParse(ourAnimals[i, 2].Substring(found + 2), out newAge);
                     if (!validAge)
                     {
                         do
@@ -294,7 +294,7 @@ do
                     }
 
                     //Ensure that a valid string is asigned to animalPhysicalDescription
-                    found = ourAnimals[i,4].IndexOf(": ");
+                    found = ourAnimals[i, 4].IndexOf(": ");
                     bool lengthValue = string.IsNullOrEmpty(ourAnimals[i, 4].Substring(found + 2));
                     bool validEntry = false;
                     if (lengthValue)
@@ -319,8 +319,52 @@ do
             break;
 
         case "4":
-            // Ensure animal ages and physical descriptions are complete
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            // Ensure that pet nicknames and personality descriptions are complete
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    // Ensure that pet nicknames are complete
+                    int found = ourAnimals[i, 3].IndexOf(": ");
+                    bool nickNameValue = string.IsNullOrEmpty(ourAnimals[i, 3].Substring(found + 2));
+                    if (nickNameValue)
+                    {
+                        do
+                        {
+                            Console.WriteLine("Enter a nickname for " + ourAnimals[i, 0].ToString());
+                            readResult = Console.ReadLine();
+                            bool validEntry = string.IsNullOrEmpty(readResult);
+
+                            if (readResult != null && !validEntry)
+                            {
+                                ourAnimals[i, 3] = "Nickname: " + readResult;
+                                nickNameValue = false;
+                            }
+                        } while (nickNameValue);
+                    }
+
+                    // Ensure that personality descriptions are complete
+
+                    found = ourAnimals[i, 5].IndexOf(": ");
+                    bool personalityValue = string.IsNullOrEmpty(ourAnimals[i,5].Substring(found + 2));
+                    if (personalityValue)
+                    {   
+                        do
+                        {
+                        Console.WriteLine("Enter a personality description for " + ourAnimals[i, 0].ToString() + "(likes or dislike, tricks, energy level)");
+                        readResult = Console.ReadLine();
+                        bool validEntry = string.IsNullOrEmpty(readResult);
+
+                        if (readResult != null && !validEntry)
+                        {
+                            ourAnimals[i, 5] = "Personality: " + readResult;
+                            personalityValue = false;
+                        }
+                        }while(personalityValue);
+                    }
+                }
+            }
+            Console.WriteLine("\nNickname and personality description fields are complete for all of our friends.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
