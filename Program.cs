@@ -5,14 +5,16 @@ string animalAge = "";
 string animalPhysicalDescription = "";
 string animalPersonalityDescription = "";
 string animalNickname = "";
+string suggestedDonation = ""; 
 
 // variables that support data entry
 int maxPets = 8;
 string? readResult;
 string menuSelection = "";
+decimal decimalDonation = 0.00m;
 
 // array used to store runtime data, there is no persisted data
-string[,] ourAnimals = new string[maxPets, 6];
+string[,] ourAnimals = new string[maxPets, 7];
 
 // TODO: Convert the if-elseif-else construct to a switch statement
 
@@ -28,6 +30,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "medium sized cream colored female golden retriever weighing about 65 pounds. housebroken.";
             animalPersonalityDescription = "loves to have her belly rubbed and likes to chase her tail. gives lots of kisses.";
             animalNickname = "lola";
+            suggestedDonation = "85.00";
             break;
         case 1:
             animalSpecies = "dog";
@@ -36,6 +39,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "large reddish-brown male golden retriever weighing about 85 pounds. housebroken.";
             animalPersonalityDescription = "loves to have his ears rubbed when he greets you at the door, or at any time! loves to lean-in and give doggy hugs.";
             animalNickname = "loki";
+            suggestedDonation = "49.99";
             break;
 
         case 2:
@@ -45,6 +49,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "small white female weighing about 8 pounds. litter box trained.";
             animalPersonalityDescription = "friendly";
             animalNickname = "Puss";
+            suggestedDonation = "40.00";
             break;
 
         case 3:
@@ -54,6 +59,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "";
             animalPersonalityDescription = "";
             animalNickname = "";
+            suggestedDonation = "";
             break;
 
         default:
@@ -63,6 +69,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "";
             animalPersonalityDescription = "";
             animalNickname = "";
+            suggestedDonation = "";
             break;
     }
 
@@ -72,6 +79,15 @@ for (int i = 0; i < maxPets; i++)
     ourAnimals[i, 3] = "Nickname: " + animalNickname;
     ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
     ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
+    ourAnimals[i, 6] = "Suggested Donation: " + suggestedDonation;
+
+    //Ensure that suggestedDonation is a valid decimal number if it doesnt, assign default value 45.00
+    if(!decimal.TryParse(suggestedDonation, out decimalDonation)){
+        decimalDonation = 45.00m;
+    }
+
+    //decimal donation version of the data
+    ourAnimals[i,6] = $"Suggested Donation: {decimalDonation:C2}";
 }
 
 // display the top-level menu options
@@ -114,7 +130,7 @@ do
                 if (ourAnimals[i, 0] != "ID #: ")
                 {
                     Console.WriteLine();
-                    for (int j = 0; j < 6; j++)
+                    for (int j = 0; j < 7; j++)
                     {
                         Console.WriteLine(ourAnimals[i, j]);
                     }
@@ -384,16 +400,47 @@ do
             break;
 
         case "7":
-            // Ensure animal ages and physical descriptions are complete
+            // Display all cats with a specified characteristic
             Console.WriteLine("this app feature is coming soon - please check back to see progress.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "8":
-            // Ensure animal ages and physical descriptions are complete
-            Console.WriteLine("this app feature is coming soon - please check back to see progress.");
+            // Display all dogs with a specified characteristic
+            string dogCharacteristic = "";
+
+            while (dogCharacteristic == "")
+            {
+                // have the user enter physical characteristic to search for
+                Console.WriteLine($"\nEnter one desired dog characteristic to search for");
+                readResult = Console.ReadLine();
+                if(readResult != null)
+                {
+                    dogCharacteristic = readResult.ToLower().Trim();
+                }
+            }
             Console.WriteLine("Press the Enter key to continue.");
+            // loop through the ourAnimals array to search for matching animals
+            string dogDescription = "";
+            bool noMatchesDog = true;
+            for (int i = 0; i < maxPets; i++)
+            {
+                if(ourAnimals[i,1].Contains("dog"))
+                {
+                    //Search combined descriptions and report results
+                    dogDescription = ourAnimals[i,4] + "\n" + ourAnimals[i,5];
+                    if (dogDescription.Contains(dogCharacteristic))
+                    {
+                        Console.WriteLine($"\nOur Dog {ourAnimals[i,3]} is a match!");
+                        Console.WriteLine(dogDescription);
+                        noMatchesDog = false;
+                    }
+                }
+            }
+            if(noMatchesDog){ 
+                Console.WriteLine("None of our dogs are a match found for: " + dogCharacteristic);
+            }
             readResult = Console.ReadLine();
             break;
 
