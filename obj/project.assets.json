@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\buyer\\.nuget\\packages\\": {}
+    "C:\\Users\\pedro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\buyer\\Documents\\CsharpProjects\\ContosoPets\\ContosoPets.csproj",
+      "projectUniqueName": "D:\\Programas\\C#\\Contoso-Pets\\ContosoPets.csproj",
       "projectName": "ContosoPets",
-      "projectPath": "C:\\Users\\buyer\\Documents\\CsharpProjects\\ContosoPets\\ContosoPets.csproj",
-      "packagesPath": "C:\\Users\\buyer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\buyer\\Documents\\CsharpProjects\\ContosoPets\\obj\\",
+      "projectPath": "D:\\Programas\\C#\\Contoso-Pets\\ContosoPets.csproj",
+      "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
+      "outputPath": "D:\\Programas\\C#\\Contoso-Pets\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\buyer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
